@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Page</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #2b2e4a;
+    }
+
+    .login-container {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      width: 320px;
+      text-align: center;
+    }
+
+    .login-container form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .login-container label {
+      margin-bottom: 10px;
+      font-size: 16px;
+      color: #333;
+    }
+
+    .login-container input[type="text"],
+    .login-container input[type="password"],
+    .login-container input[type="submit"] {
+      padding: 12px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      border: none;
+    }
+
+    .login-container input[type="text"],
+    .login-container input[type="password"] {
+      background-color: #f0f0f0;
+    }
+
+    .login-container input[type="submit"] {
+      background-color: #ff6b6b;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .login-container input[type="submit"]:hover {
+      background-color: #e63946;
+    }
+    
+   .btncrt{
+      text-decoration: none;
+      color: white;
+      background-color: #27479e;
+      border: 0;
+      border-radius: 7px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+   }
+   
+   .btncrt:hover{
+      background-color: #192d64;
+   }
+  </style>
+</head>
+<body onload="skipPage()">
+  <div class="login-container">
+    <form>
+      <label for="username">Create Username:</label>
+      <input type="text" class="username" name="username" class="login-input" required>
+
+      <button onclick="create()" class="btncrt">Create</button>
+    </form>
+  </div>
+  
+  <script>
+  
+  function skipPage() {
+     usrnm = localStorage.getItem("usernameWSEPRS");
+     if (usrnm) {
+        window.location.href = "login.html";
+     }
+  }  
+  
+  
+  
+  
+  
+  
+     function create(){
+        
+        
+        
+        
+       let confirm = prompt("Write OK to continue:")
+       if(confirm == "OK"){
+          username = document.querySelector('.username').value;
+          alert("Successfully Created User:"+" "+username+"!");
+          localStorage.setItem("usernameWSEPRS", username)
+       }
+       else{
+          alert("Okey, Take Time to Choose a Username!");
+       }
+       
+     }
+  </script>
+</body>
+</html>
