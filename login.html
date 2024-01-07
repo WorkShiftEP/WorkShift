@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Page</title>
+  <style>
+    body{
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #2b2e4a;
+    }
+
+    .login-container {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      width: 320px;
+      text-align: center;
+    }
+
+    .login-container form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .login-container label {
+      margin-bottom: 10px;
+      font-size: 16px;
+      color: #333;
+    }
+
+    .login-container input[type="text"],
+    .login-container input[type="password"],
+    .login-container input[type="submit"] {
+      padding: 12px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      border: none;
+    }
+
+    .login-container input[type="text"],
+    .login-container input[type="password"] {
+      background-color: #f0f0f0;
+    }
+
+    .login-container input[type="submit"] {
+      background-color: #ff6b6b;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .login-container input[type="submit"]:hover {
+      background-color: #e63946;
+    }
+    
+   .btnlogin {
+      text-decoration: none;
+      color: white;
+      background-color: #27479e;
+      border: 0;
+      border-radius: 7px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+   }
+
+   .btnlogin:hover {
+      background-color: #192d64;
+   }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <form>
+      <label for="username">Access Username:</label>
+      <input type="text" class="usernames" name="username" class="login-input" required>
+
+      <label for="password">Access Code:</label>
+      <input type="password" class="password" name="password" class="login-input" required>
+
+      <button type="reset" onclick="Login()" class="btnlogin">Login</button>
+    </form>
+  </div>
+  
+  <script>
+    const code = 181937; // Access code for validation
+
+    function Login() {
+      // Your code to validate the login
+      let usernames = document.querySelector('.usernames').value;
+      let accessCode = document.querySelector('.password').value;
+      let acess = parseInt(accessCode);
+      
+      // Retrieve username from localStorage
+      let usrnm = localStorage.getItem("usernameWSEPRS");
+
+      // Check username and access code
+      if (usernames === usrnm && acess === code) {
+        alert("Login Successful!");
+        window.location.href = "https://aviso.bz/";
+      } else {
+        alert("Wrong Information!");
+      }
+    }
+  </script>
+</body>
+</html>
